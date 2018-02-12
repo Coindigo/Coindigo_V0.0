@@ -1,0 +1,23 @@
+{
+  "name": "coindigo",
+  "version": "0.0.0",
+  "description": "coindigo front end",
+  "main": "coindigo_app/js/main.jsx",
+  "author": "coindigo_corp",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "eslint": "^3.19.0",
+    "webpack": "^2.6.1"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.10",
+    "moment": "^2.10.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}

@@ -10,7 +10,7 @@
 
 ;;directories to ignore
 .idea/
-coindigo_v0/coindigo_app/
+coindigo_v0/coindigo_app/migrations/
 
 .DS_Store
 venv/
