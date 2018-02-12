@@ -11,6 +11,7 @@
 ;;directories to ignore
 .idea/
 coindigo_v0/coindigo_app/migrations/
+coindigo_v0/static/
 
 .DS_Store
 venv/
