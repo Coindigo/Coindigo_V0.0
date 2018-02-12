@@ -1,0 +1,14 @@
+Django==2.0.2
+django-appconf==1.0.2
+django-imagekit==4.0.2
+include==0.2.1
+Markdown==2.6.11
+nodeenv==1.2.0
+olefile==0.45.1
+pilkit==2.0
+Pillow==5.0.0
+pinax-blog==7.0.1
+pinax-images==3.0.1
+Pygments==2.2.0
+pytz==2017.3
+six==1.11.0
