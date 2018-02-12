@@ -1,23 +1,28 @@
 from django.contrib import admin
 from .models import *
 
+
 # Register your models here.
 class UserInfoAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "email", "is_admin", "date_joined"]
+    list_display = ["__str__", "email", "is_admin", "get_is_writer", "date_joined"]
+
     class Meta:
         model = UserInfo
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ["__str__"]
+
     class Meta:
         model = Category
 
+
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "get_owner", "get_title", "get_is_publish", "get_content", "get_created", "get_last_modified"]
+    list_display = ["__str__", "get_owner", "get_title", "get_is_publish",
+                    "get_content", "get_created", "get_last_modified"]
+
     class Meta:
         model = Blog
-
 
 
 admin.site.register(UserInfo, UserInfoAdmin)
