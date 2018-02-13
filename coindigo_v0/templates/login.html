@@ -20,6 +20,36 @@
 	<link rel="stylesheet" type="text/css" href="/static/user/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/static/user/css/main.css">
 <!--===============================================================================================-->
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.12.0/jquery-ui.min.js" integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E=" crossorigin="anonymous"></script>
+
+<script>
+$(document).on('ready', function() {
+	$('#login_form').on('submit', function(event) {
+		event.preventDefault();
+		var data = $('#login_form').serialize();
+		console.log("TRIGGERED")
+		$.ajax({
+			type: "POST",
+			url: "/user/submit_login/",
+			data: data,
+			success: function(data, textStatus, request){
+				if (data.success) {
+					// data.redirect contains the string URL to redirect to
+					window.location.href = data.location;
+				}
+				else {
+					alert(data.error);
+				}
+			},
+			failure: function(){
+				alert('Unable to connect to the server');
+			}
+		});
+	});
+});
+</script>
 </head>
 <body>
 
@@ -30,21 +60,30 @@
 					<img src="/static/user/images/coindigo.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form action="/user/submit_login/" method="post" class="login100-form validate-form" id="login_form">
+                    {% csrf_token %}
 					<span class="login100-form-title">
 						OG Login
 					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+					<div class="wrap-input100 validate-input" data-validate = "">
+						<input class="input100" type="text" name="username" placeholder="Username">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
+                    <!--div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div -->
+
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="password" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -52,7 +91,7 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" type="submit" form="login_form" id="login_button">
 							Login
 						</button>
 					</div>
