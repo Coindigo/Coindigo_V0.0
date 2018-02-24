@@ -6,7 +6,7 @@ import datetime
 
 
 class UserInfo(models.Model):
-    user = models.OneToOneField(User, related_name='userinfo', on_delete = models.CASCADE)
+    user = models.OneToOneField(User, related_name='userinfo', on_delete=models.CASCADE)
     user_image = models.ImageField(blank=True, null=True, upload_to="static/media")
     about = models.TextField(blank=True, null=True)
     contact_info = models.TextField(blank=True, null=True)
@@ -42,9 +42,9 @@ class Blog(models.Model):
     content = models.TextField(blank=True, null=True)
     category = models.ForeignKey(Category, blank=True, null=True, on_delete=False)
     blog_image = models.ImageField(blank=True, null = True, upload_to="static/media")
-    created = models.DateTimeField(default=datetime.datetime.now())
+    created = models.DateTimeField(default=datetime.datetime.now)
     is_publish = models.BooleanField(default=False, blank=False, null=False)
-    last_modified = models.DateTimeField(default=datetime.datetime.now())
+    last_modified = models.DateTimeField(default=datetime.datetime.now)
 
     def __str__(self):
         return str(self.category)
